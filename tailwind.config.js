@@ -36,6 +36,9 @@ export default {
           800: '#86198f',
           900: '#701a75',
         },
+        border: 'hsl(var(--border))',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
       },
       animation: {
         'gradient-x': 'gradient-x 15s ease infinite',
