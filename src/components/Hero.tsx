@@ -177,13 +177,13 @@ const Hero: FC = () => {
                 <div className="w-full h-full bg-gradient-to-br from-primary-100 to-accent-100 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center">
                   <span className="text-6xl md:text-8xl">👤</span>
                 </div>
-                {/* Placeholder for actual photo */}
+                {/* Profile Image */}
                 <img
-                  src="/profile-photo.jpg"
+                  src="/profile-photo.png"
                   alt={personalInfo.name}
-                  className="absolute inset-0 w-full h-full object-cover hidden"
+                  className="absolute inset-0 w-full h-full object-cover"
                   onError={(e) => {
-                    e.currentTarget.style.display = 'none';
+                    (e.target as HTMLImageElement).style.display = 'none';
                   }}
                 />
               </motion.div>
