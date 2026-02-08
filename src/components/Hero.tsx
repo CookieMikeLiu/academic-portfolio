@@ -179,7 +179,7 @@ const Hero: FC = () => {
                 </div>
                 {/* Profile Image */}
                 <img
-                  src="/profile-photo.png"
+                  src="/profile-photo.jpg"
                   alt={personalInfo.name}
                   className="absolute inset-0 w-full h-full object-cover"
                   onError={(e) => {
