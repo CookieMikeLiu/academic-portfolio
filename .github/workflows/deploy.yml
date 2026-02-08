@@ -6,6 +6,15 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -27,27 +36,11 @@ jobs:
       run: npx tsc --noEmit
       
     - name: Build
-      run: |
-        set -o pipefail
-        npm run build 2>&1 | tee build.log
-      shell: bash
-      continue-on-error: true
-      
-    - name: Check Build Status
-      run: |
-        if [ ! -d "dist" ] || [ ! -f "dist/index.html" ]; then
-          echo "Build failed! Checking logs..."
-          cat build.log || echo "No log file found"
-          exit 1
-        fi
-        echo "Build successful!"
-        
-    - name: List Dist Contents
-      run: ls -la dist/
+      run: npm run build
       
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
-      if: github.ref == 'refs/heads/main' && success()
+      if: github.ref == 'refs/heads/main'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist
