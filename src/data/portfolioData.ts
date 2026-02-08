@@ -49,6 +49,19 @@ export const education = [
 
 export const publications = [
   {
+    title: "MindMix: A Multimodal Foundation Model for Auditory Perception Decoding via Deep Neural-Acoustic Alignment",
+    authors: "Rui Liu, Z. Chen, S. Peng, W. You, Z.-A. Huang, J. Wu, K. C. Tan",
+    venue: "The Fourteenth International Conference on Learning Representations (ICLR)",
+    year: "2026",
+    type: "Conference",
+    links: {
+      paper: "#",
+      arxiv: "#",
+    },
+    abstract: "A multimodal foundation model for decoding auditory perception using deep neural-acoustic alignment techniques.",
+    tags: ["Foundation Model", "Multimodal", "ICLR"],
+  },
+  {
     title: "Dynamic Graph Representation Learning for Spatio-Temporal Neuroimaging Analysis",
     authors: "Rui Liu, Y. Hu, J. Wu, K.-C. Wong, Z.-A. Huang, Y.-A. Huang, K. C. Tan",
     venue: "IEEE Transactions on Cybernetics (TCYB)",
@@ -119,19 +132,6 @@ export const publications = [
     },
     abstract: "Transformer-based approach for ASD classification using time-series fMRI data, capturing long-range dependencies.",
     tags: ["Transformer", "ASD", "fMRI"],
-  },
-  {
-    title: "MindMix: A Multimodal Foundation Model for Auditory Perception Decoding via Deep Neural-Acoustic Alignment",
-    authors: "Rui Liu, Z. Chen, S. Peng, W. You, Z.-A. Huang, J. Wu, K. C. Tan",
-    venue: "The Fourteenth International Conference on Learning Representations (ICLR)",
-    year: "2026",
-    type: "Conference",
-    links: {
-      paper: "#",
-      arxiv: "#",
-    },
-    abstract: "A multimodal foundation model for decoding auditory perception using deep neural-acoustic alignment techniques.",
-    tags: ["Foundation Model", "Multimodal", "ICLR"],
   },
   {
     title: "Multi-LSTM Networks for Accurate Classification of Attention Deficit Hyperactivity Disorder from Resting-State fMRI Data",
