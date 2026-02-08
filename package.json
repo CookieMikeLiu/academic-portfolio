@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "homepage": "https://yourusername.github.io/academic-portfolio",
+  "homepage": "https://cookiemikelliu.github.io/academic-portfolio",
   "dependencies": {
     "framer-motion": "^10.16.4",
     "lucide-react": "^0.294.0",
