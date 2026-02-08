@@ -12,24 +12,42 @@ jobs:
     
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
         cache: 'npm'
         
     - name: Install dependencies
-      run: npm install
+      run: npm ci
+      
+    - name: TypeScript Check
+      run: npx tsc --noEmit
       
     - name: Build
       run: |
-        npm run build 2>&1 || (cat /home/runner/.npm/_logs/*.log 2>/dev/null; exit 1)
+        set -o pipefail
+        npm run build 2>&1 | tee build.log
+      shell: bash
+      continue-on-error: true
+      
+    - name: Check Build Status
+      run: |
+        if [ ! -d "dist" ] || [ ! -f "dist/index.html" ]; then
+          echo "Build failed! Checking logs..."
+          cat build.log || echo "No log file found"
+          exit 1
+        fi
+        echo "Build successful!"
+        
+    - name: List Dist Contents
+      run: ls -la dist/
       
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main'
+      uses: peaceiris/actions-gh-pages@v4
+      if: github.ref == 'refs/heads/main' && success()
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist
