@@ -18,7 +18,7 @@ const Publications: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-            Publications</span>
+            <span className="gradient-text">Publications</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto rounded-full mb-4" />
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -135,7 +135,7 @@ const Publications: React.FC = () => {
                         arXiv
                       </motion.a>
                     )}
-                    <{/* Expand/Collapse Abstract */}
+                    {/* Expand/Collapse Abstract */}
                     <motion.button
                       onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
                       whileHover={{ scale: 1.05 }}
