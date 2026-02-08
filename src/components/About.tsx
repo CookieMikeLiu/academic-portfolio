@@ -1,9 +1,9 @@
-import React from 'react';
+import { FC } from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, Award, Code, BookOpen } from 'lucide-react';
 import { researchInterests, education, awards, skills } from '../data/portfolioData';
 
-const About: React.FC = () => {
+const About: FC = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -52,7 +52,7 @@ const About: React.FC = () => {
               <h3 className="text-xl font-semibold">Research Interests</h3>
             </motion.div>
             <div className="flex flex-wrap gap-3">
-              {researchInterests.map((interest, index) => (
+              {researchInterests.map((interest) => (
                 <motion.span
                   key={interest}
                   variants={itemVariants}

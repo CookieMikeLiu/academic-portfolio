@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Github, FileText, Award, ChevronDown, ChevronUp } from 'lucide-react';
 import { publications } from '../data/portfolioData';
@@ -97,9 +97,9 @@ const Publications: React.FC = () => {
                         Paper
                       </motion.a>
                     )}
-                    {pub.links.code && (
+                    {(pub.links as Record<string, string>).code && (
                       <motion.a
-                        href={pub.links.code}
+                        href={(pub.links as Record<string, string>).code}
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
@@ -110,9 +110,9 @@ const Publications: React.FC = () => {
                         Code
                       </motion.a>
                     )}
-                    {pub.links.project && (
+                    {(pub.links as Record<string, string>).project && (
                       <motion.a
-                        href={pub.links.project}
+                        href={(pub.links as Record<string, string>).project}
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
@@ -123,9 +123,9 @@ const Publications: React.FC = () => {
                         Project
                       </motion.a>
                     )}
-                    {pub.links.arxiv && (
+                    {(pub.links as Record<string, string>).arxiv && (
                       <motion.a
-                        href={pub.links.arxiv}
+                        href={(pub.links as Record<string, string>).arxiv}
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}

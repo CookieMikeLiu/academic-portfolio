@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Globe } from 'lucide-react';
 import { projects } from '../data/portfolioData';
@@ -48,16 +47,16 @@ const Projects: React.FC = () => {
                     alt={project.title}
                     className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-10 transition-opacity duration-300"
                     onError={(e) => {
-                      e.currentTarget.style.display = 'none';
+                      (e.target as HTMLImageElement).style.display = 'none';
                     }}
                   />
                   
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                     <div className="flex gap-3">
-                      {project.links.github && (
+                      {(project.links as Record<string, string>).github && (
                         <motion.a
-                          href={project.links.github}
+                          href={(project.links as Record<string, string>).github}
                           target="_blank"
                           rel="noopener noreferrer"
                           whileHover={{ scale: 1.1 }}
@@ -67,9 +66,9 @@ const Projects: React.FC = () => {
                           <Github size={20} />
                         </motion.a>
                       )}
-                      {project.links.demo && (
+                      {(project.links as Record<string, string>).demo && (
                         <motion.a
-                          href={project.links.demo}
+                          href={(project.links as Record<string, string>).demo}
                           target="_blank"
                           rel="noopener noreferrer"
                           whileHover={{ scale: 1.1 }}
@@ -105,9 +104,9 @@ const Projects: React.FC = () => {
                   </div>
                   
                   <div className="flex gap-3">
-                    {project.links.github && (
+                    {(project.links as Record<string, string>).github && (
                       <motion.a
-                        href={project.links.github}
+                        href={(project.links as Record<string, string>).github}
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
@@ -118,9 +117,9 @@ const Projects: React.FC = () => {
                         Code
                       </motion.a>
                     )}
-                    {project.links.demo && (
+                    {(project.links as Record<string, string>).demo && (
                       <motion.a
-                        href={project.links.demo}
+                        href={(project.links as Record<string, string>).demo}
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
@@ -131,9 +130,9 @@ const Projects: React.FC = () => {
                         Demo
                       </motion.a>
                     )}
-                    {project.links.paper && (
+                    {(project.links as Record<string, string>).paper && (
                       <motion.a
-                        href={project.links.paper}
+                        href={(project.links as Record<string, string>).paper}
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
@@ -144,9 +143,9 @@ const Projects: React.FC = () => {
                         Paper
                       </motion.a>
                     )}
-                    {project.links.docs && (
+                    {(project.links as Record<string, string>).docs && (
                       <motion.a
-                        href={project.links.docs}
+                        href={(project.links as Record<string, string>).docs}
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}

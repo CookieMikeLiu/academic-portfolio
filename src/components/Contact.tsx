@@ -1,9 +1,9 @@
-import React from 'react';
+import { FC } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Github, Linkedin, Twitter, MapPin, ExternalLink, BookOpen } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
-const Contact: React.FC = () => {
+const Contact: FC = () => {
   const socialLinks = [
     {
       name: 'Email',

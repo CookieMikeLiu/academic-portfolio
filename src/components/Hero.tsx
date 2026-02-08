@@ -1,9 +1,9 @@
-import React from 'react';
+import { FC } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, MapPin, Mail } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
-const Hero: React.FC = () => {
+const Hero: FC = () => {
   return (
     <section
       id="home"
