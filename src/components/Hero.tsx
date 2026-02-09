@@ -17,7 +17,7 @@ const Hero: FC = () => {
             </h1>
 
             <div className="flex justify-center mb-8 md:hidden">
-              <div className="w-24 h-24 overflow-hidden bg-black/5 dark:bg-white/5">
+              <div className="w-32 h-32 overflow-hidden bg-black/5 dark:bg-white/5">
                 <img
                   src="profile-photo.jpg"
                   alt={personalInfo.name}
