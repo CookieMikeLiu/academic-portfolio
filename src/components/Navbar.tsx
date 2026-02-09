@@ -1,5 +1,4 @@
 import { FC, useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon, Menu, X } from 'lucide-react';
 
 interface NavbarProps {
@@ -12,15 +11,12 @@ const Navbar: FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Publications', href: '#publications' },
     { name: 'Projects', href: '#projects' },
@@ -28,115 +24,82 @@ const Navbar: FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
   ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
     setIsMobileMenuOpen(false);
   };
 
   return (
     <>
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+      <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'glass shadow-lg'
-            : 'bg-transparent'
+          isScrolled ? 'bg-white/90 dark:bg-black/90 backdrop-blur-sm' : 'bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Logo */}
-            <motion.a
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="flex items-center justify-between h-16">
+            <a
               href="#home"
               onClick={(e) => { e.preventDefault(); scrollToSection('#home'); }}
-              className="text-xl md:text-2xl font-serif font-bold gradient-text"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="text-sm tracking-wide text-black dark:text-white hover:opacity-60 transition-opacity"
             >
-              Portfolio
-            </motion.a>
+              Home
+            </a>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center gap-8">
               {navItems.map((item) => (
-                <motion.a
+                <a
                   key={item.name}
                   href={item.href}
                   onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
-                  className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-                  whileHover={{ y: -2 }}
-                  whileTap={{ y: 0 }}
+                  className="text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
                 >
                   {item.name}
-                </motion.a>
+                </a>
               ))}
-              
-              {/* Theme Toggle */}
-              <motion.button
+              <button
                 onClick={toggleDarkMode}
-                className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
+                className="p-2 text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
               >
-                {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-              </motion.button>
+                {darkMode ? <Sun size={16} /> : <Moon size={16} />}
+              </button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center space-x-4">
-              <motion.button
+            <div className="md:hidden flex items-center gap-4">
+              <button
                 onClick={toggleDarkMode}
-                className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
-                whileTap={{ scale: 0.9 }}
+                className="p-2 text-black/60 dark:text-white/60"
               >
-                {darkMode ? <Sun size={18} /> : <Moon size={18} />}
-              </motion.button>
-              <motion.button
+                {darkMode ? <Sun size={16} /> : <Moon size={16} />}
+              </button>
+              <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
-                whileTap={{ scale: 0.9 }}
+                className="p-2 text-black/60 dark:text-white/60"
               >
-                {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-              </motion.button>
+                {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+              </button>
             </div>
           </div>
         </div>
-      </motion.nav>
+      </nav>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-16 z-40 md:hidden"
-          >
-            <div className="glass mx-4 mt-2 rounded-2xl p-4 shadow-xl">
-              <div className="flex flex-col space-y-2">
-                {navItems.map((item, index) => (
-                  <motion.a
-                    key={item.name}
-                    href={item.href}
-                    onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    className="px-4 py-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                  >
-                    {item.name}
-                  </motion.a>
-                ))}
-              </div>
+      {isMobileMenuOpen && (
+        <div className="fixed inset-x-0 top-16 z-40 md:hidden">
+          <div className="bg-white dark:bg-black border-b border-black/10 dark:border-white/10 mx-6 py-4">
+            <div className="flex flex-col gap-4">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
+                  className="text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
+                >
+                  {item.name}
+                </a>
+              ))}
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      )}
     </>
   );
 };
