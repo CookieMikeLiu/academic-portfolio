@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { GraduationCap, Award, Code, BookOpen } from 'lucide-react';
-import { researchInterests, education, awards, skills } from '../data/portfolioData';
+import { GraduationCap, Code, BookOpen } from 'lucide-react';
+import { researchInterests, education, skills } from '../data/portfolioData';
 
 const About: FC = () => {
   return (
@@ -54,40 +54,21 @@ const About: FC = () => {
             </div>
           </div>
 
-          <div className="space-y-12">
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <GraduationCap className="text-black/30 dark:text-white/30" size={16} strokeWidth={1.5} />
-                <h3 className="text-xs uppercase tracking-wider text-black/40 dark:text-white/40">
-                  Education
-                </h3>
-              </div>
-              <div className="space-y-6">
-                {education.map((edu, index) => (
-                  <div key={index}>
-                    <h4 className="text-sm text-black dark:text-white">{edu.degree}</h4>
-                    <p className="text-sm text-black/60 dark:text-white/60">{edu.institution}</p>
-                    <p className="text-xs text-black/40 dark:text-white/40 mt-1">{edu.year}</p>
-                  </div>
-                ))}
-              </div>
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <GraduationCap className="text-black/30 dark:text-white/30" size={16} strokeWidth={1.5} />
+              <h3 className="text-xs uppercase tracking-wider text-black/40 dark:text-white/40">
+                Education
+              </h3>
             </div>
-
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <Award className="text-black/30 dark:text-white/30" size={16} strokeWidth={1.5} />
-                <h3 className="text-xs uppercase tracking-wider text-black/40 dark:text-white/40">
-                  Awards
-                </h3>
-              </div>
-              <div className="space-y-4">
-                {awards.map((award, index) => (
-                  <div key={index}>
-                    <h4 className="text-sm text-black dark:text-white">{award.title}</h4>
-                    <p className="text-xs text-black/40 dark:text-white/40">{award.organization}</p>
-                  </div>
-                ))}
-              </div>
+            <div className="space-y-6">
+              {education.map((edu, index) => (
+                <div key={index}>
+                  <h4 className="text-sm text-black dark:text-white">{edu.degree}</h4>
+                  <p className="text-sm text-black/60 dark:text-white/60">{edu.institution}</p>
+                  <p className="text-xs text-black/40 dark:text-white/40 mt-1">{edu.year}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
