@@ -6,8 +6,8 @@ const Hero: FC = () => {
   return (
     <section id="home" className="min-h-[90vh] flex items-center pt-20">
       <div className="max-w-5xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-[1fr_auto] gap-12 md:gap-16 items-start">
-          <div className="order-2 md:order-1">
+        <div className="grid md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-start">
+          <div>
             <p className="text-sm text-black/40 dark:text-white/40 mb-4 tracking-wide">
               {personalInfo.title}
             </p>
@@ -55,8 +55,8 @@ const Hero: FC = () => {
             </div>
           </div>
 
-          <div className="order-1 md:order-2 flex justify-center md:justify-end">
-            <div className="w-40 h-40 md:w-48 md:h-48 overflow-hidden bg-black/5 dark:bg-white/5">
+          <div className="flex justify-center md:justify-end">
+            <div className="w-32 h-32 md:w-48 md:h-48 overflow-hidden bg-black/5 dark:bg-white/5">
               <img
                 src="profile-photo.jpg"
                 alt={personalInfo.name}
