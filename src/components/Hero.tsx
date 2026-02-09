@@ -12,14 +12,11 @@ const Hero: FC = () => {
               {personalInfo.title}
             </p>
 
-            <h1 className="text-4xl md:text-5xl font-light mb-2 text-black dark:text-white leading-tight">
-              {personalInfo.name}
+            <h1 className="text-4xl md:text-5xl font-light mb-6 text-black dark:text-white leading-tight">
+              {personalInfo.name}, 刘瑞
             </h1>
-            <p className="text-xl md:text-2xl font-light text-black/60 dark:text-white/60 mb-6">
-              刘瑞
-            </p>
 
-            <div className="flex justify-start mb-8 md:hidden">
+            <div className="flex justify-center mb-8 md:hidden">
               <div className="w-24 h-24 overflow-hidden bg-black/5 dark:bg-white/5">
                 <img
                   src="profile-photo.jpg"
