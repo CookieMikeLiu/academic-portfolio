@@ -19,6 +19,7 @@ const Navbar: FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
   const navItems = [
     { name: 'About', href: '#about' },
     { name: 'Publications', href: '#publications' },
+    { name: 'Awards', href: '#awards' },
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ];
