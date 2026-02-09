@@ -9,8 +9,8 @@ const Publications: React.FC = () => {
   const selectedPublications = publications.slice(0, 10);
 
   return (
-    <section id="publications" className="py-24 md:py-32 bg-black/[0.02] dark:bg-white/[0.02]">
-      <div className="max-w-4xl mx-auto px-6">
+    <section id="publications" className="py-20 md:py-24 bg-black/[0.02] dark:bg-white/[0.02]">
+      <div className="max-w-5xl mx-auto px-6">
         <div className="mb-16">
           <h2 className="text-2xl font-light text-black dark:text-white mb-4">Selected Publications</h2>
           <div className="w-12 h-px bg-black/20 dark:bg-white/20" />

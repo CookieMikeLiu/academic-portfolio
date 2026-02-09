@@ -35,7 +35,7 @@ const Navbar: FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
           isScrolled ? 'bg-white/90 dark:bg-black/90 backdrop-blur-sm' : 'bg-transparent'
         }`}
       >
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-5xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             <a
               href="#home"

@@ -4,23 +4,23 @@ import { personalInfo } from '../data/portfolioData';
 
 const Hero: FC = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center pt-16">
-      <div className="max-w-4xl mx-auto px-6 py-20">
-        <div className="grid md:grid-cols-[1fr_auto] gap-16 items-start">
-          <div>
-            <p className="text-sm text-black/40 dark:text-white/40 mb-6 tracking-wide">
+    <section id="home" className="min-h-[90vh] flex items-center pt-20">
+      <div className="max-w-5xl mx-auto px-6 py-16">
+        <div className="grid md:grid-cols-[1fr_auto] gap-12 md:gap-16 items-start">
+          <div className="order-2 md:order-1">
+            <p className="text-sm text-black/40 dark:text-white/40 mb-4 tracking-wide">
               {personalInfo.title}
             </p>
 
-            <h1 className="text-4xl md:text-5xl font-light mb-8 text-black dark:text-white leading-tight">
+            <h1 className="text-4xl md:text-5xl font-light mb-6 text-black dark:text-white leading-tight">
               {personalInfo.name}
             </h1>
 
-            <p className="text-black/60 dark:text-white/60 mb-10 max-w-lg leading-relaxed">
+            <p className="text-black/60 dark:text-white/60 mb-8 leading-relaxed">
               {personalInfo.bio}
             </p>
 
-            <div className="flex flex-wrap gap-6 mb-10 text-sm text-black/40 dark:text-white/40">
+            <div className="flex flex-wrap gap-6 mb-8 text-sm text-black/40 dark:text-white/40">
               <span className="flex items-center gap-2">
                 <MapPin size={14} />
                 {personalInfo.institution}
@@ -55,8 +55,8 @@ const Hero: FC = () => {
             </div>
           </div>
 
-          <div className="hidden md:block self-center">
-            <div className="w-48 h-48 overflow-hidden bg-black/5 dark:bg-white/5">
+          <div className="order-1 md:order-2 flex justify-center md:justify-end">
+            <div className="w-40 h-40 md:w-48 md:h-48 overflow-hidden bg-black/5 dark:bg-white/5">
               <img
                 src="profile-photo.jpg"
                 alt={personalInfo.name}

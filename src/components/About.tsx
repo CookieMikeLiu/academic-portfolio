@@ -4,8 +4,8 @@ import { researchInterests, education, awards, skills } from '../data/portfolioD
 
 const About: FC = () => {
   return (
-    <section id="about" className="py-24 md:py-32">
-      <div className="max-w-4xl mx-auto px-6">
+    <section id="about" className="py-20 md:py-24">
+      <div className="max-w-5xl mx-auto px-6">
         <div className="mb-16">
           <h2 className="text-2xl font-light text-black dark:text-white mb-4">About</h2>
           <div className="w-12 h-px bg-black/20 dark:bg-white/20" />
